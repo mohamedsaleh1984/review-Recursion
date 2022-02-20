@@ -57,7 +57,7 @@ public:
 			return 0;
 		if (root->left == NULL && root->right == NULL)
 			return root->data;
-		
+
 		int leftVal = MaxValue(root->left);
 		int rightVal = MaxValue(root->right);
 		int currValue = root->data;
@@ -228,7 +228,7 @@ public:
 		if (r1->data == r2->data) {
 			return true;
 		}
-		
+
 		bool bLeftSide = AreTreeEqual(r1->left, r2->left);
 		bool bRightSide = AreTreeEqual(r1->right, r2->right);
 		return bLeftSide && bRightSide;
@@ -266,23 +266,26 @@ public:
 		return true;;
 	}
 
-	private:
-		vector<int> getLeaves(binaryTreeNode* root) {
-			vector<int> vec;
-			leaves(root, vec);
-			return vec;
-		}
+	vector<string> BinaryTreePaths(binaryTreeNode* root) {
+		vector<string> result;
+		PathFinder(root, result, "");
+		return result;
+	}
 
-		void leaves(binaryTreeNode* root, vector<int>& v) {
-			if (root == NULL)
-				return;
-			if (root->left == NULL and root->right == NULL)
-				v.push_back(root->data);
-			leaves(root->left,v);
-			leaves(root->right,v);
-		}
-
-
+private:
+	vector<int> getLeaves(binaryTreeNode* root) {
+		vector<int> vec;
+		leaves(root, vec);
+		return vec;
+	}
+	void leaves(binaryTreeNode* root, vector<int>& v) {
+		if (root == NULL)
+			return;
+		if (root->left == NULL and root->right == NULL)
+			v.push_back(root->data);
+		leaves(root->left, v);
+		leaves(root->right, v);
+	}
 	/* Prototypes for functions needed in printPaths() */
 	/* Recursive helper function -- given a node, and an array containing the path from the root node up to but not including this node, print out all the root-leaf paths.*/
 	void printPathsRecur(binaryTreeNode* node, int path[], int pathLen)
@@ -307,5 +310,23 @@ public:
 		}
 	}
 
+	//Get all avaliable Paths from Root to Leaves
+	void PathFinder(binaryTreeNode* root, vector<string>& res, string currPath) {
+		if (root == NULL)
+			return;
+		//In case we reached to Leaf node store the path and exit the function
+		if (root->left == NULL && root->right == NULL)
+		{
+			currPath += to_string(root->data);
+			res.push_back(currPath);
+			return;
+		}
 
+		currPath += to_string(root->data) + "=>";
+		if (root->left)
+			PathFinder(root->left, res, currPath);
+
+		if (root->right)
+			PathFinder(root->right, res, currPath);
+	}
 };

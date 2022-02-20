@@ -10,6 +10,20 @@
 using namespace std;
 TreeRecAlgo* ptrTree;
 
+void test_binaryTree_BinaryTreePaths() {
+    binaryTreeNode* root = new binaryTreeNode(10);
+    root->left = new binaryTreeNode(8);
+    root->right = new binaryTreeNode(2);
+    root->left->left = new binaryTreeNode(3);
+    root->left->right = new binaryTreeNode(5);
+    root->right->left = new  binaryTreeNode(2);
+    root->right->left->left = new binaryTreeNode(2);
+
+    vector<string> v = ptrTree->BinaryTreePaths(root);
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << "\n";
+}
+
 void test_binaryTree_AreLeavesEqualAnotherWay() {
     binaryTreeNode* root = new binaryTreeNode(10);
     root->left = new binaryTreeNode(8);
