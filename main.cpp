@@ -11,7 +11,8 @@ using namespace std;
 
 int main()
 {
-	test_binaryTree_AreLeavesEqual();
+	test_binaryTree_AreLeavesEqualAnotherWay();
+	//test_binaryTree_AreLeavesEqual();
 	//test_binaryTree_AreRootsEqual();
 	//test_BinaryTree_SumOfRootToLeaf();
 	//test_BinaryTree_LevelOrder();

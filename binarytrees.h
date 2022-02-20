@@ -252,23 +252,37 @@ public:
 	}
 
 	bool AreLeavesEqual2(binaryTreeNode* r1, binaryTreeNode* r2) {
-		if (r1 == NULL && r2 == NULL) {
-			return true;
+		vector<int> v1 = getLeaves(r1);
+		vector<int> v2 = getLeaves(r2);
+		if (v1.size() != v2.size()) {
+			return false;
 		}
 
-		if (r1->left == NULL && r2->left == NULL && r1->right == NULL && r2->right) {
-			if (r1->data == r2->data)
-				return true;
-			else
+		for (int i = 0; i < v1.size(); i++) {
+			if (v1[i] != v2[i])
 				return false;
 		}
 
-		bool bLeftSide = AreLeavesEqual(r1->left, r2->left);
-		bool bRightSide = AreLeavesEqual(r1->right, r2->right);
-		return bLeftSide && bRightSide;
+		return true;;
 	}
 
 	private:
+		vector<int> getLeaves(binaryTreeNode* root) {
+			vector<int> vec;
+			leaves(root, vec);
+			return vec;
+		}
+
+		void leaves(binaryTreeNode* root, vector<int>& v) {
+			if (root == NULL)
+				return;
+			if (root->left == NULL and root->right == NULL)
+				v.push_back(root->data);
+			leaves(root->left,v);
+			leaves(root->right,v);
+		}
+
+
 	/* Prototypes for functions needed in printPaths() */
 	/* Recursive helper function -- given a node, and an array containing the path from the root node up to but not including this node, print out all the root-leaf paths.*/
 	void printPathsRecur(binaryTreeNode* node, int path[], int pathLen)
