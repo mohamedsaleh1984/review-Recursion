@@ -34,7 +34,7 @@ public:
 		cout << root->data << " ";
 	}
 
-	bool isSymmetric(binaryTreeNode* root) {
+	bool IsSymmetric(binaryTreeNode* root) {
 		if (root->left == NULL && root->right != NULL)
 		{
 			return false;
@@ -44,22 +44,24 @@ public:
 			return false;
 		}
 
-		int leftVal = isSymmetric(root->left);
-		int rightVal = isSymmetric(root->right);
+		int leftVal = IsSymmetric(root->left);
+		int rightVal = IsSymmetric(root->right);
 		if (leftVal != rightVal) {
 			return false;
 		}
 		return true;
 	}
 
-	int maxValue(binaryTreeNode* root) {
+	int MaxValue(binaryTreeNode* root) {
 		if (root == NULL)
 			return 0;
 		if (root->left == NULL && root->right == NULL)
 			return root->data;
-		int leftVal = maxValue(root->left);
-		int rightVal = maxValue(root->right);
+		
+		int leftVal = MaxValue(root->left);
+		int rightVal = MaxValue(root->right);
 		int currValue = root->data;
+
 		if (leftVal > currValue)
 			currValue = leftVal;
 		if (rightVal > currValue)
@@ -67,14 +69,16 @@ public:
 		return currValue;
 	}
 
-	int minValue(binaryTreeNode* root) {
+	int MinValue(binaryTreeNode* root) {
 		if (root == NULL)
 			return 0;
 		if (root->left == NULL && root->right == NULL)
 			return root->data;
-		int leftVal = minValue(root->left);
-		int rightVal = minValue(root->right);
+
+		int leftVal = MinValue(root->left);
+		int rightVal = MinValue(root->right);
 		int currValue = root->data;
+
 		if (leftVal < currValue)
 			currValue = leftVal;
 		if (rightVal < currValue)
@@ -82,20 +86,20 @@ public:
 		return currValue;
 	}
 
-	int countLeaves(binaryTreeNode* root) {
+	int CountLeaves(binaryTreeNode* root) {
 		if (root == NULL)
 			return 0;
 
 		if (root->left == NULL && root->right == NULL)
 			return 1;
 
-		int leftCount = countLeaves(root->left);
-		int rightCount = countLeaves(root->right);
+		int leftCount = CountLeaves(root->left);
+		int rightCount = CountLeaves(root->right);
 
 		return leftCount + rightCount;
 	}
 
-	bool isHeap(binaryTreeNode* root) {
+	bool IsHeap(binaryTreeNode* root) {
 		if (root->left == NULL && root->right == NULL)
 			return true;
 
@@ -106,7 +110,7 @@ public:
 		if (root->left != NULL && root->right != NULL) {
 			if (root->data > root->left->data && root->data > root->right->data)
 			{
-				return isHeap(root->left) && isHeap(root->right);
+				return IsHeap(root->left) && IsHeap(root->right);
 			}
 		}
 		return false;
@@ -115,7 +119,7 @@ public:
 	/*
 		Binary Search
 	*/
-	bool binarySearch(binaryTreeNode* root, int target) {
+	bool BinarySearch(binaryTreeNode* root, int target) {
 		if (root == NULL)
 			return false;
 
@@ -124,8 +128,8 @@ public:
 		}
 
 		if (target > root->data)
-			return binarySearch(root->right, target);
-		return binarySearch(root->left, target);
+			return BinarySearch(root->right, target);
+		return BinarySearch(root->left, target);
 	}
 
 	binaryTreeNode* BSTInsertion(binaryTreeNode* root, int data)
@@ -212,6 +216,8 @@ public:
 		int path[1000];
 		printPathsRecur(node, path, 0);
 	}
+
+
 	private:
 	/* Prototypes for functions needed in printPaths() */
 	/* Recursive helper function -- given a node, and an array containing the path from the root node up to but not including this node, print out all the root-leaf paths.*/
