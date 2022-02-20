@@ -1,6 +1,6 @@
 #pragma once
-#ifndef RECFUNCTIONS_H
-#define RECFUNCTIONS_H
+#ifndef GENERAL_H
+#define GENERAL_H
 #include <string>     // std::string, std::to_string
 #include <map>
 #include "arrays.h"
@@ -237,7 +237,4 @@ public:
 	}
 };
 
-
-
-
-#endif // !RECFUNCTIONS_H
+#endif // !GENERAL_H
