@@ -22,6 +22,9 @@
     <ClInclude Include="aux.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="headers">

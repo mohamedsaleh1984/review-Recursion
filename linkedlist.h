@@ -14,6 +14,7 @@ public:
 			listCount++;
 		return listCount;
 	}
+
 	int occuranceRecursive(listNode* head, int target) {
 		if (head == NULL)
 			return 0;

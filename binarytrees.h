@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ds.h"
 #include "aux.h"
+#include <queue>
 using namespace std;
 
 
@@ -86,6 +87,7 @@ public:
 	int countLeaves(binaryTreeNode* root) {
 		if (root == NULL)
 			return 0;
+
 		if (root->left == NULL && root->right == NULL)
 			return 1;
 
@@ -173,5 +175,67 @@ public:
 			}
 		}
 		return leftSide && rightSide;
+	}
+
+	void LevelOrder(struct binaryTreeNode* root) {
+		if (root == NULL) return;
+		queue<binaryTreeNode*> Q;
+		Q.push(root);
+		while (!Q.empty()) {
+			struct binaryTreeNode* curr = Q.front();
+			cout << curr->data << " ";
+			if (curr->left != NULL) Q.push(curr->left);
+			if (curr->right != NULL) Q.push(curr->right);
+			Q.pop();
+		}
+	}
+
+	binaryTreeNode* SumofTwoTrees(binaryTreeNode* root1, binaryTreeNode* root2) {
+		if (root1 == NULL && root2 == NULL) return NULL;
+		if (root1 == NULL) return root2;
+		if (root2 == NULL) return root1;
+
+		struct binaryTreeNode* newNode = (struct binaryTreeNode*)malloc(sizeof(struct binaryTreeNode));
+		newNode->data = root1->data + root2->data;
+
+		newNode->left = SumofTwoTrees(root1->left, root2->left);
+		newNode->right = SumofTwoTrees(root1->right, root2->right);
+
+		return newNode;
+	}
+
+	int SumOfRootToLeaf(binaryTreeNode* root) {
+		return 0;
+	}
+
+	/*Given a binary tree, print out all of its root-to-leaf paths, one per line. Uses a recursive helper to do the work.*/
+	void PrintPaths(binaryTreeNode* node)
+	{
+		int path[1000];
+		printPathsRecur(node, path, 0);
+	}
+	private:
+	/* Prototypes for functions needed in printPaths() */
+	/* Recursive helper function -- given a node, and an array containing the path from the root node up to but not including this node, print out all the root-leaf paths.*/
+	void printPathsRecur(binaryTreeNode* node, int path[], int pathLen)
+	{
+		if (node == NULL)
+			return;
+
+		/* append this node to the path array */
+		path[pathLen] = node->data;
+		pathLen++;
+
+		/* it's a leaf, so print the path that lead to here */
+		if (node->left == NULL && node->right == NULL)
+		{
+			printArray(path, pathLen);
+		}
+		else
+		{
+			/* otherwise try both subtrees */
+			printPathsRecur(node->left, path, pathLen);
+			printPathsRecur(node->right, path, pathLen);
+		}
 	}
 };
