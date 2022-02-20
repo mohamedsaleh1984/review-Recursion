@@ -9,6 +9,22 @@
 #include "ds.h"
 using namespace std;
 TreeRecAlgo* ptrTree;
+
+void test_BinaryTree_SumOfRootToLeaf() {
+    binaryTreeNode* root = new binaryTreeNode(10);
+    root->left = new binaryTreeNode(8);
+    root->right = new binaryTreeNode(2);
+    root->left->left = new binaryTreeNode(3);
+    root->left->right = new binaryTreeNode(5);
+    root->right->left = new  binaryTreeNode(2);
+    root->right->left->left = new binaryTreeNode(12);
+    //expected 10+8+2+3+5+2+12 = 42
+    cout << "Sum " << ptrTree->SumOfRootToLeaf(root) << endl;
+    //Cool
+
+}
+
+
 void test_BinaryTree_LevelOrder() {
     binaryTreeNode* root = new binaryTreeNode(10);
     root->left = new binaryTreeNode(8);
@@ -71,4 +87,6 @@ void test_BinaryTree_SumofTwoTrees() {
     binaryTreeNode* root3 = ptrTree->SumofTwoTrees(root, root2);
     ptrTree->InOrder(root3);
 }
+
+
 #endif // !TEST_H

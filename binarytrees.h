@@ -207,7 +207,9 @@ public:
 	}
 
 	int SumOfRootToLeaf(binaryTreeNode* root) {
-		return 0;
+		if (root == NULL)
+			return 0;
+		return root->data + SumOfRootToLeaf(root->left) + SumOfRootToLeaf(root->right);
 	}
 
 	/*Given a binary tree, print out all of its root-to-leaf paths, one per line. Uses a recursive helper to do the work.*/
