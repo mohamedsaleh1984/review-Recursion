@@ -4,9 +4,6 @@
     <ClInclude Include="arrays.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="aux.h">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="binarytrees.h">
       <Filter>headers</Filter>
     </ClInclude>
@@ -19,7 +16,10 @@
     <ClInclude Include="random.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="recfunctions.h">
+    <ClInclude Include="general.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="aux.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>

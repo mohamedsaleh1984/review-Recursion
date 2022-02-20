@@ -148,7 +148,7 @@
     <ClInclude Include="ds.h" />
     <ClInclude Include="linkedlist.h" />
     <ClInclude Include="random.h" />
-    <ClInclude Include="recfunctions.h" />
+    <ClInclude Include="general.h" />
     <ClInclude Include="binarytrees.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
