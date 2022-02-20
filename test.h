@@ -9,31 +9,27 @@
 #include "ds.h"
 using namespace std;
 TreeRecAlgo* ptrTree;
+Aux* ptrAux;
+
+void test_SumOfLeftLeaves() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    cout << ptrTree->SumOfLeftLeaves(root) << endl;
+}
+
+void test_SumOfLeftNodes() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    cout << ptrTree->SumOfLeftNodes(root) << endl;
+}
 
 void test_binaryTree_BinaryTreePaths() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(2);
-
+    binaryTreeNode* root  = ptrAux->makeTree();
     vector<string> v = ptrTree->BinaryTreePaths(root);
     for (int i = 0; i < v.size(); i++)
         cout << v[i] << "\n";
 }
 
 void test_binaryTree_AreLeavesEqualAnotherWay() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(2);
-
-
+    binaryTreeNode* root = ptrAux->makeTree();
     binaryTreeNode* root3 = new binaryTreeNode(15);
     root3->left = new binaryTreeNode(6);
     root3->right = new binaryTreeNode(9);
@@ -43,36 +39,15 @@ void test_binaryTree_AreLeavesEqualAnotherWay() {
     root3->right->left->left = new binaryTreeNode(2);
     cout << ptrTree->AreLeavesEqual2(root, root3) << endl;
 }
+
 void test_binaryTree_AreLeavesEqual() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(2);
-
-
-    binaryTreeNode* root3 = new binaryTreeNode(15);
-    root3->left = new binaryTreeNode(6);
-    root3->right = new binaryTreeNode(9);
-    root3->left->left = new binaryTreeNode(3);
-    root3->left->right = new binaryTreeNode(5);
-    root3->right->left = new  binaryTreeNode(2);
-    root3->right->left->left = new binaryTreeNode(2);
+    binaryTreeNode* root = ptrAux->makeTree();
+    binaryTreeNode* root3 = ptrAux->makeTree(); 
     cout << ptrTree->AreLeavesEqual(root, root3) << endl;
-
 }
 
 void test_binaryTree_AreRootsEqual() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(2);
-
+    binaryTreeNode* root = ptrAux->makeTree();
     binaryTreeNode* root2 = new binaryTreeNode(2);
     root2->left = new binaryTreeNode(5);
     root2->right = new binaryTreeNode(3);
@@ -93,71 +68,24 @@ void test_binaryTree_AreRootsEqual() {
 }
 
 void test_BinaryTree_SumOfRootToLeaf() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(12);
-    //expected 10+8+2+3+5+2+12 = 42
+    binaryTreeNode* root = ptrAux->makeTree();
     cout << "Sum " << ptrTree->SumOfRootToLeaf(root) << endl;
-    //Cool
-
 }
 
 
 void test_BinaryTree_LevelOrder() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(12);
-    /* Constructed binary tree is
-         10
-        /   \
-       8     2
-      / \    /
-     3   5  2
-           /
-          12
-    */
+    binaryTreeNode* root = ptrAux->makeTree();
     ptrTree->LevelOrder(root);
-    //exoected:: 10,8,2,3,5,2,12
 }
 
 void  test_BinaryTree_PrintPathsFromRootToLeafs()
 {
-    /* Constructed binary tree is
-         10
-        /   \
-       8     2
-      / \    /
-     3   5  2
-           /
-          2
-    */
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(2);
+    binaryTreeNode* root = ptrAux->makeTree();
     ptrTree->PrintPaths(root);
-
 }
 
 void test_BinaryTree_SumofTwoTrees() {
-    binaryTreeNode* root = new binaryTreeNode(10);
-    root->left = new binaryTreeNode(8);
-    root->right = new binaryTreeNode(2);
-    root->left->left = new binaryTreeNode(3);
-    root->left->right = new binaryTreeNode(5);
-    root->right->left = new  binaryTreeNode(2);
-    root->right->left->left = new binaryTreeNode(2);
+    binaryTreeNode* root = ptrAux->makeTree();
 
     binaryTreeNode* root2 = new binaryTreeNode(2);
     root2->left = new binaryTreeNode(5);

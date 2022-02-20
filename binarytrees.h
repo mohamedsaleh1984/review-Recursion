@@ -7,7 +7,6 @@
 #include <queue>
 using namespace std;
 
-
 class TreeRecAlgo {
 public:
 	void InOrder(binaryTreeNode* root) {
@@ -272,6 +271,17 @@ public:
 		return result;
 	}
 
+	int SumOfLeftNodes(binaryTreeNode* root) {
+		int sum = 0;
+		SumOfLeftNodesHelper(root, false, sum);
+		return sum;
+	}
+
+	int SumOfLeftLeaves(binaryTreeNode* root) {
+		int sum = 0;
+		SumOfLeftLeavesHelper(root, false, sum);
+		return sum;
+	}
 private:
 	vector<int> getLeaves(binaryTreeNode* root) {
 		vector<int> vec;
@@ -328,5 +338,31 @@ private:
 
 		if (root->right)
 			PathFinder(root->right, res, currPath);
+	}
+
+	int SumOfLeftNodesHelper(binaryTreeNode* root, bool isLeft, int& sum) {
+		if (root == NULL)
+			return 0;
+
+		if (isLeft) {
+			cout << root->data << " ";
+			sum += root->data;
+		}
+
+		int leftNode = SumOfLeftNodesHelper(root->left, true, sum);
+		int rightNode = SumOfLeftNodesHelper(root->right, false, sum);
+	}
+
+	int SumOfLeftLeavesHelper(binaryTreeNode* root, bool isLeft, int& sum) {
+		if (root == NULL)
+			return 0;
+
+		if (isLeft && root->left == NULL && root->right == NULL) {
+			cout << root->data << " ";
+			sum += root->data;
+		}
+
+		int leftNode = SumOfLeftLeavesHelper(root->left, true, sum);
+		int rightNode = SumOfLeftLeavesHelper(root->right, false, sum);
 	}
 };
