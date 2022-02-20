@@ -51,4 +51,24 @@ void  test_BinaryTree_PrintPathsFromRootToLeafs()
     ptrTree->PrintPaths(root);
 
 }
+
+void test_BinaryTree_SumofTwoTrees() {
+    binaryTreeNode* root = new binaryTreeNode(10);
+    root->left = new binaryTreeNode(8);
+    root->right = new binaryTreeNode(2);
+    root->left->left = new binaryTreeNode(3);
+    root->left->right = new binaryTreeNode(5);
+    root->right->left = new  binaryTreeNode(2);
+    root->right->left->left = new binaryTreeNode(2);
+
+    binaryTreeNode* root2 = new binaryTreeNode(2);
+    root2->left = new binaryTreeNode(5);
+    root2->right = new binaryTreeNode(3);
+    root2->left->left = new binaryTreeNode(1);
+    root2->right->left = new  binaryTreeNode(9);
+    root2->right->left->left = new binaryTreeNode(15);
+
+    binaryTreeNode* root3 = ptrTree->SumofTwoTrees(root, root2);
+    ptrTree->InOrder(root3);
+}
 #endif // !TEST_H

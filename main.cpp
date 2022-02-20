@@ -12,7 +12,8 @@ using namespace std;
 int main()
 {
 	//test_BinaryTree_LevelOrder();
-	test_BinaryTree_PrintPathsFromRootToLeafs();
+	//test_BinaryTree_PrintPathsFromRootToLeafs();
+	test_BinaryTree_SumofTwoTrees();
 	return 0;
 }
 

@@ -14,9 +14,7 @@ public:
 		if (root == NULL)
 			return;
 		InOrder(root->left);
-
-		cout << "ParentNode-Name (" << root->parent->data << ") NodeData (" << root->data << ")\n";
-
+		cout << root->data << " ";
 		InOrder(root->right);
 	}
 
