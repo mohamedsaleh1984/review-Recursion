@@ -219,6 +219,20 @@ public:
 		printPathsRecur(node, path, 0);
 	}
 
+	bool AreTreeEqual(binaryTreeNode* r1, binaryTreeNode* r2) {
+		if ((r1 == NULL && r2 != NULL) || (r1 != NULL && r2 == NULL))
+			return false;
+		if (r1 == NULL && r2 == NULL) {
+			return true;
+		}
+		if (r1->data == r2->data) {
+			return true;
+		}
+		
+		bool bLeftSide = AreTreeEqual(r1->left, r2->left);
+		bool bRightSide = AreTreeEqual(r1->right, r2->right);
+		return bLeftSide && bRightSide;
+	}
 
 	private:
 	/* Prototypes for functions needed in printPaths() */
@@ -244,4 +258,6 @@ public:
 			printPathsRecur(node->right, path, pathLen);
 		}
 	}
+
+
 };
