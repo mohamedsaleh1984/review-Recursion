@@ -282,6 +282,26 @@ public:
 		SumOfLeftLeavesHelper(root, false, sum);
 		return sum;
 	}
+
+	bool PathWithTargetSum(binaryTreeNode* root,const int& TargetSum) {
+		int alt = 0;
+		return IsPathSum(root, TargetSum, alt);
+	}
+
+
+	//TODO:Need to implement dfs 
+	//void FindPathToNode(binaryTreeNode* root, int TargetNode) {
+	//	stack<binaryTreeNode*> stk;
+	//	stk.push(root);
+	//	vector<int> route = { root->data };
+	//	while (!stk.empty()) {
+	//		binaryTreeNode* node = stk.top();
+	//		if (node->data == TargetNode) {
+	//			return;
+	//		}
+	//		if()
+	//	}
+	//}
 private:
 	vector<int> getLeaves(binaryTreeNode* root) {
 		vector<int> vec;
@@ -364,5 +384,19 @@ private:
 
 		int leftNode = SumOfLeftLeavesHelper(root->left, true, sum);
 		int rightNode = SumOfLeftLeavesHelper(root->right, false, sum);
+	}
+
+	bool IsPathSum(binaryTreeNode* root, int TargetSum, int& currentSum) {
+		if (root == NULL)
+			return false;
+
+		if (root->left == NULL && root->right == NULL)
+			return (currentSum + root->data) == TargetSum;
+
+		int sumUntil = currentSum + root->data;
+		bool leftVal = IsPathSum(root->left, TargetSum, sumUntil);
+		bool rightVal = IsPathSum(root->right, TargetSum, sumUntil);
+
+		return leftVal || rightVal;
 	}
 };

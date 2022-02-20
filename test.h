@@ -11,6 +11,11 @@ using namespace std;
 TreeRecAlgo* ptrTree;
 Aux* ptrAux;
 
+void test_PathWithTargetSum() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    cout << ptrTree->PathWithTargetSum(root,272) << endl;
+}
+
 void test_SumOfLeftLeaves() {
     binaryTreeNode* root = ptrAux->makeTree();
     cout << ptrTree->SumOfLeftLeaves(root) << endl;

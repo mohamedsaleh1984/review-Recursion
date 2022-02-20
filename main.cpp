@@ -19,10 +19,13 @@ using namespace std;
 	   /
 	  55
 */
+
 int main()
 {
-	test_SumOfLeftNodes();		//55+5+-145+152+170 = 237
-	test_SumOfLeftLeaves();		//55+170 = 225
+	//TODO:Fix
+	test_PathWithTargetSum();
+	//test_SumOfLeftNodes();		//55+5+-145+152+170 = 237
+	//test_SumOfLeftLeaves();		//55+170 = 225
 	//test_binaryTree_BinaryTreePaths();
 	//test_binaryTree_AreLeavesEqualAnotherWay();
 	//test_binaryTree_AreLeavesEqual();
