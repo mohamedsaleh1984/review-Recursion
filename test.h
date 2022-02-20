@@ -10,6 +10,27 @@
 using namespace std;
 TreeRecAlgo* ptrTree;
 
+void test_binaryTree_AreLeavesEqual() {
+    binaryTreeNode* root = new binaryTreeNode(10);
+    root->left = new binaryTreeNode(8);
+    root->right = new binaryTreeNode(2);
+    root->left->left = new binaryTreeNode(3);
+    root->left->right = new binaryTreeNode(5);
+    root->right->left = new  binaryTreeNode(2);
+    root->right->left->left = new binaryTreeNode(2);
+
+
+    binaryTreeNode* root3 = new binaryTreeNode(15);
+    root3->left = new binaryTreeNode(6);
+    root3->right = new binaryTreeNode(9);
+    root3->left->left = new binaryTreeNode(3);
+    root3->left->right = new binaryTreeNode(5);
+    root3->right->left = new  binaryTreeNode(2);
+    root3->right->left->left = new binaryTreeNode(2);
+    cout << ptrTree->AreLeavesEqual(root, root3) << endl;
+
+}
+
 void test_binaryTree_AreRootsEqual() {
     binaryTreeNode* root = new binaryTreeNode(10);
     root->left = new binaryTreeNode(8);

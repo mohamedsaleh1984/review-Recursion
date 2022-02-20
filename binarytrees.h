@@ -234,6 +234,40 @@ public:
 		return bLeftSide && bRightSide;
 	}
 
+	bool AreLeavesEqual(binaryTreeNode* r1, binaryTreeNode* r2) {
+		if (r1 == NULL && r2 == NULL) {
+			return true;
+		}
+
+		if (r1->left == NULL && r2->left == NULL && r1->right == NULL && r2->right) {
+			if (r1->data == r2->data)
+				return true;
+			else
+				return false;
+		}
+
+		bool bLeftSide = AreLeavesEqual(r1->left, r2->left);
+		bool bRightSide = AreLeavesEqual(r1->right, r2->right);
+		return bLeftSide && bRightSide;
+	}
+
+	bool AreLeavesEqual2(binaryTreeNode* r1, binaryTreeNode* r2) {
+		if (r1 == NULL && r2 == NULL) {
+			return true;
+		}
+
+		if (r1->left == NULL && r2->left == NULL && r1->right == NULL && r2->right) {
+			if (r1->data == r2->data)
+				return true;
+			else
+				return false;
+		}
+
+		bool bLeftSide = AreLeavesEqual(r1->left, r2->left);
+		bool bRightSide = AreLeavesEqual(r1->right, r2->right);
+		return bLeftSide && bRightSide;
+	}
+
 	private:
 	/* Prototypes for functions needed in printPaths() */
 	/* Recursive helper function -- given a node, and an array containing the path from the root node up to but not including this node, print out all the root-leaf paths.*/
