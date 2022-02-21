@@ -344,15 +344,19 @@ private:
 	void PathFinder(binaryTreeNode* root, vector<string>& res, string currPath) {
 		if (root == NULL)
 			return;
-		//In case we reached to Leaf node store the path and exit the function
-		if (root->left == NULL && root->right == NULL)
-		{
+
+		//We've reached to a leave
+		if (root->left == NULL && root->right == NULL) {
+			//Append the current Node to the Path
 			currPath += to_string(root->data);
+			//Push the Path to the vector
 			res.push_back(currPath);
 			return;
 		}
 
-		currPath += to_string(root->data) + "=>";
+
+
+		currPath += to_string(root->data) + "->";
 		if (root->left)
 			PathFinder(root->left, res, currPath);
 
