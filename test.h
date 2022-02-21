@@ -11,6 +11,11 @@ using namespace std;
 TreeRecAlgo* ptrTree;
 Aux* ptrAux;
 
+void test_Height() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    cout << ptrTree->GetHeight(root) << endl;
+}
+
 void test_PathWithTargetSum() {
     binaryTreeNode* root = ptrAux->makeTree();
     cout << ptrTree->PathWithTargetSum(root,272) << endl;

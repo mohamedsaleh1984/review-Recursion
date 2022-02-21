@@ -22,8 +22,8 @@ using namespace std;
 
 int main()
 {
-	//TODO:Fix
-	test_PathWithTargetSum();
+	test_Height();
+	//TODO:Fix test_PathWithTargetSum();
 	//test_SumOfLeftNodes();		//55+5+-145+152+170 = 237
 	//test_SumOfLeftLeaves();		//55+170 = 225
 	//test_binaryTree_BinaryTreePaths();

@@ -302,6 +302,18 @@ public:
 	//		if()
 	//	}
 	//}
+
+	int GetHeight(binaryTreeNode* root) {
+		if (root == NULL ) return 0;
+		return 1 + max(GetHeight(root->left), GetHeight(root->right));
+	}
+
+	//TODO::Implement it using GetHeight functions
+	/*bool IsBalanced(binaryTreeNode* root) {
+
+	}*/
+
+
 private:
 	vector<int> getLeaves(binaryTreeNode* root) {
 		vector<int> vec;
