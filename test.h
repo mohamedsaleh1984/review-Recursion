@@ -11,6 +11,11 @@ using namespace std;
 TreeRecAlgo* ptrTree;
 Aux* ptrAux;
 
+void test_IsBalanced() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    printf("%s", ptrTree->IsBalanced(root) ? "true" : "false");
+}
+
 void test_Height() {
     binaryTreeNode* root = ptrAux->makeTree();
     cout << ptrTree->GetHeight(root) << endl;

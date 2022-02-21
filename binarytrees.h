@@ -115,9 +115,6 @@ public:
 		return false;
 	}
 
-	/*
-		Binary Search
-	*/
 	bool BinarySearch(binaryTreeNode* root, int target) {
 		if (root == NULL)
 			return false;
@@ -140,7 +137,6 @@ public:
 	void BSTInsertion2(binaryTreeNode* root, binaryTreeNode* parent, int data) {
 		if (root == NULL) {
 			binaryTreeNode* newNode = new binaryTreeNode(data);
-			newNode->parent = parent;
 			return;
 		}
 
@@ -308,12 +304,37 @@ public:
 		return 1 + max(GetHeight(root->left), GetHeight(root->right));
 	}
 
-	//TODO::Implement it using GetHeight functions
-	/*bool IsBalanced(binaryTreeNode* root) {
+	/*
+		1- Left subtree is balanced
+		2- right subtree is balanced
+		3- the difference between left and right less than or equal 1
+	*/
+	bool IsBalanced(binaryTreeNode* root) {
+		if (root == NULL)
+			return true;
 
+		int lh = GetHeight(root->left);
+		int rh = GetHeight(root->right);
+
+		if (abs(lh - rh) <= 1 && IsBalanced(root->left) && IsBalanced(root->right))
+			return true;
+		return false;
+	}
+
+	/*
+		Convert one tree to another; knowing that you can swap only the children if specific Parent
+		ref ::https://www.youtube.com/watch?v=o6NfQeGP0zg
+	*/
+	/*bool IsIsomorphic(binaryTreeNode* root1, binaryTreeNode* root2)
+	{
+		if (!root1 && !root2) return true;
+		if (!root1 || !root1) return false;
+		if (root1->data != root2->data) return false;
+
+		bool a = IsIsomorphic(root1->left, root2->left) && IsIsomorphic(root1->right, root2->right);
+		bool b = IsIsomorphic(root1->left, root2->right) && IsIsomorphic(root1->right, root2->left);
+		return a || b;
 	}*/
-
-
 private:
 	vector<int> getLeaves(binaryTreeNode* root) {
 		vector<int> vec;

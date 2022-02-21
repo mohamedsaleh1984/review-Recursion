@@ -8,7 +8,6 @@ struct binaryTreeNode {
 	int data= 0;
 	binaryTreeNode* left = NULL;
 	binaryTreeNode* right = NULL;
-	binaryTreeNode* parent = NULL;
 	binaryTreeNode() {
 		left = NULL;
 		right = NULL;
