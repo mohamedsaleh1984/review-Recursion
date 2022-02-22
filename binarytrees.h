@@ -301,7 +301,7 @@ public:
 
 		while (!S.empty()) {
 			pair<binaryTreeNode*, int> node = S.front();
-			if (node.first->data == TargetNode) 
+			if (node.first->data == TargetNode)
 			{
 				targetNode = make_pair(node.first, node.first->data);
 				kk.insert(std::make_pair(node.first->data, node.first));
@@ -397,6 +397,23 @@ public:
 		bool b = IsIsomorphic(root1->left, root2->right) && IsIsomorphic(root1->right, root2->left);
 		return a || b;
 	}*/
+
+
+	binaryTreeNode* LowestCommonAncestor(binaryTreeNode* root, int v1, int v2) {
+		if (root == NULL)
+			return NULL;
+
+		if (root->data == v1 || root->data == v2)
+			return root;
+
+		binaryTreeNode* llca = LowestCommonAncestor(root->left, v1, v2);
+		binaryTreeNode* rlca = LowestCommonAncestor(root->right, v1, v2);
+
+		if (llca && rlca)
+			return root;
+
+		return llca ? llca : rlca;
+	}
 private:
 	vector<int> getLeaves(binaryTreeNode* root) {
 		vector<int> vec;

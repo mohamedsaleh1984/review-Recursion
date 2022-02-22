@@ -11,6 +11,12 @@ using namespace std;
 TreeRecAlgo* ptrTree;
 Aux* ptrAux;
 
+void testLowestCommonAncestor() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    binaryTreeNode* node = ptrTree->LowestCommonAncestor(root, 15, 72);
+    cout << "Lowest Common Ancestor :: " << node->data << endl;
+}
+
 void test_FindPathToNode() {
     binaryTreeNode* root = ptrAux->makeTree();
     cout << ptrTree->FindPathToNode(root, 17) << endl;
