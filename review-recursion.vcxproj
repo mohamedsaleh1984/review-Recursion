@@ -144,8 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrays.h" />
-    <ClInclude Include="aux.h" />
     <ClInclude Include="ds.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="linkedlist.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="general.h" />

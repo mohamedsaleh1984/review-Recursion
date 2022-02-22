@@ -19,10 +19,10 @@
     <ClInclude Include="general.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="aux.h">
+    <ClInclude Include="test.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="test.h">
+    <ClInclude Include="helper.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>

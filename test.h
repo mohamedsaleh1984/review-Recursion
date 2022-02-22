@@ -9,7 +9,7 @@
 #include "ds.h"
 using namespace std;
 TreeRecAlgo* ptrTree;
-Aux* ptrAux;
+Helper* ptrAux;
 
 void test_PathSum2() {
     vector<int> treeNodesValues = { 5,4,8,11,NULL,13,4,7,2,NULL,NULL,5,1 };
