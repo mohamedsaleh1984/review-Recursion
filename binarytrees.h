@@ -414,7 +414,25 @@ public:
 
 		return llca ? llca : rlca;
 	}
+	/*
+	* TODO::
+	* https://leetcode.com/problems/path-sum-ii/
+	*/
+	vector<vector<int>> PathSum2(binaryTreeNode* root, int targetSum) {
+		vector<vector<int>> res(10);
+		int index = 0;
+		PathSum2Helper(root, res,targetSum,index);
+		return res;
+	}
+
+
 private:
+	void PathSum2Helper(binaryTreeNode* root, vector<vector<int>>& res, int targetSum,int& index) {
+		if (root == NULL) {
+			return;
+		}
+	}
+
 	vector<int> getLeaves(binaryTreeNode* root) {
 		vector<int> vec;
 		leaves(root, vec);
@@ -423,8 +441,10 @@ private:
 	void leaves(binaryTreeNode* root, vector<int>& v) {
 		if (root == NULL)
 			return;
+
 		if (root->left == NULL and root->right == NULL)
 			v.push_back(root->data);
+
 		leaves(root->left, v);
 		leaves(root->right, v);
 	}
@@ -465,8 +485,6 @@ private:
 			res.push_back(currPath);
 			return;
 		}
-
-
 
 		currPath += to_string(root->data) + "->";
 		if (root->left)

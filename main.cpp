@@ -18,7 +18,9 @@ using namespace std;
 
 int main()
 {
-	test_FindPathToNode();
+	test_PathSum2();
+	//test_LowestCommonAncestor();
+	//test_FindPathToNode();
 	//test_IsBalanced();
 	//test_Height();
 	//TODO:Fix test_PathWithTargetSum();
