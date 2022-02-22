@@ -18,7 +18,8 @@ using namespace std;
 
 int main()
 {
-	test_IsBalanced();
+	test_FindPathToNode();
+	//test_IsBalanced();
 	//test_Height();
 	//TODO:Fix test_PathWithTargetSum();
 	//test_SumOfLeftNodes();		//55+5+-145+152+170 = 237

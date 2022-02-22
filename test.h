@@ -11,6 +11,11 @@ using namespace std;
 TreeRecAlgo* ptrTree;
 Aux* ptrAux;
 
+void test_FindPathToNode() {
+    binaryTreeNode* root = ptrAux->makeTree();
+    cout << ptrTree->FindPathToNode(root, 17) << endl;
+}
+
 void test_IsBalanced() {
     binaryTreeNode* root = ptrAux->makeTree();
     printf("%s", ptrTree->IsBalanced(root) ? "true" : "false");

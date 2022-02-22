@@ -5,6 +5,10 @@
 #include "ds.h"
 #include "aux.h"
 #include <queue>
+#include <stack>
+#include <set> 
+#include <utility> 
+#include <functional>
 using namespace std;
 
 class TreeRecAlgo {
@@ -279,28 +283,86 @@ public:
 		return sum;
 	}
 
-	bool PathWithTargetSum(binaryTreeNode* root,const int& TargetSum) {
+	bool PathWithTargetSum(binaryTreeNode* root, const int& TargetSum) {
 		int alt = 0;
 		return IsPathSum(root, TargetSum, alt);
 	}
+	//TODO:FIX
+	string FindPathToNode(binaryTreeNode* root, int TargetNode) {
+		queue<std::pair<binaryTreeNode*, int>> S;
+
+		//Parent Value, Current Node
+		map<int, binaryTreeNode*> kk;
+
+		std::pair<binaryTreeNode*, int > targetNode;
+		string r = "";
+		S.push(std::make_pair(root, -1));
+		kk.insert(std::make_pair(-1, root));
+
+		while (!S.empty()) {
+			pair<binaryTreeNode*, int> node = S.front();
+			if (node.first->data == TargetNode) 
+			{
+				targetNode = make_pair(node.first, node.first->data);
+				kk.insert(std::make_pair(node.first->data, node.first));
+				break;
+			}
+			else {
+				if (node.first->left) {
+					S.push(std::make_pair(node.first->left, node.first->data));
+					kk.insert(std::make_pair(node.first->data, node.first->left));
+				}
+
+				if (node.first->right) {
+					S.push(std::make_pair(node.first->right, node.first->data));
+					kk.insert(std::make_pair(node.first->data, node.first->right));
+				}
+
+				S.pop();
+			}
+		}
+
+		while (targetNode.second != -1)
+		{
+			int upNode;
+			r += to_string(targetNode.second);
+			binaryTreeNode* dd = kk.at(targetNode.second);
+
+		}
 
 
-	//TODO:Need to implement dfs 
-	//void FindPathToNode(binaryTreeNode* root, int TargetNode) {
-	//	stack<binaryTreeNode*> stk;
-	//	stk.push(root);
-	//	vector<int> route = { root->data };
-	//	while (!stk.empty()) {
-	//		binaryTreeNode* node = stk.top();
-	//		if (node->data == TargetNode) {
-	//			return;
+		return "";
+	}
+
+	//void findPathToNodeHelper(binaryTreeNode* root, int TargetNode) {
+	//	stack<std::pair<binaryTreeNode*,int>> S;
+	//	set<int> visited;
+	//	bool foundPath = false;
+	//	S.push(std::make_pair(root, 0));
+	//	
+	//	while (!S.empty()) {
+	//		//Check if it's Target
+	//		pair<binaryTreeNode*, int> node = S.top();
+
+	//		 if (node.first->data == TargetNode) {
+	//			break;
 	//		}
-	//		if()
+	//		else {
+	//			if (node.first->left) {
+	//				S.push(std::make_pair(node.first->left,node.second));
+	//			}
+
+	//			if (node.first->right) {
+	//				S.push(std::make_pair(node.first->right, node.second));
+	//			}
+	//			visited.insert(node.first->data);
+	//			S.pop();
+	//		} 
 	//	}
 	//}
 
 	int GetHeight(binaryTreeNode* root) {
-		if (root == NULL ) return 0;
+		if (root == NULL) return 0;
 		return 1 + max(GetHeight(root->left), GetHeight(root->right));
 	}
 
