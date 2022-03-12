@@ -20,6 +20,7 @@ public:
 		}
 		return table[num];
 	}
+
 	//https://leetcode.com/problems/n-th-tribonacci-number
 	int tribonacci(int n) {
 		if (n == 0)
