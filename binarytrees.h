@@ -322,13 +322,13 @@ public:
 			}
 		}
 
-		while (targetNode.second != -1)
+		/*while (targetNode.second != -1)
 		{
 			int upNode;
 			r += to_string(targetNode.second);
 			binaryTreeNode* dd = kk.at(targetNode.second);
 
-		}
+		}*/
 
 
 		return "";
