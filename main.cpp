@@ -7,6 +7,8 @@
 #include "binarytrees.h"
 #include "ds.h"
 #include "test.h"
+#include "arrays.h"
+
 using namespace std;
 //          15
 //         /  \
@@ -18,7 +20,11 @@ using namespace std;
 
 int main()
 {
-	test_PathSum2();
+	test_LinkedList_RotateRight();
+
+	//test_DP_Memo_Fac();
+	//test_Array_BinarySearch();
+	//test_PathSum2();
 	//test_LowestCommonAncestor();
 	//test_FindPathToNode();
 	//test_IsBalanced();

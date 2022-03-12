@@ -22,9 +22,9 @@ public:
 		return root;
 	}
 
-	binaryTreeNode* newNode(int data) {
+	binaryTreeNode* newNode(int val) {
 		binaryTreeNode* node = (binaryTreeNode*)malloc(sizeof(binaryTreeNode));
-		node->data = data;
+		node->val = val;
 		node->left = node->right = NULL;
 		return node;
 	}
@@ -40,7 +40,7 @@ public:
 		5   9     17
 		*/
 		binaryTreeNode* root = new binaryTreeNode();
-		root->data = 15;
+		root->val = 15;
 		root->left = new binaryTreeNode(10);
 		root->right = new binaryTreeNode(25);
 		root->left->left = new binaryTreeNode(7);
@@ -54,7 +54,7 @@ public:
 	}
 	binaryTreeNode* makeSymmetricTree() {
 		binaryTreeNode* root = new binaryTreeNode();
-		root->data = 1;
+		root->val = 1;
 		root->left = new binaryTreeNode(2);
 		root->left->left = new binaryTreeNode(3);
 		root->left->right = new binaryTreeNode(4);
@@ -68,7 +68,7 @@ public:
 	}
 	binaryTreeNode* makeHeap() {
 		binaryTreeNode* root = new binaryTreeNode();
-		root->data = 9;
+		root->val = 9;
 		root->left = new binaryTreeNode(8);
 		root->right = new binaryTreeNode(7);
 		root->left->left = new binaryTreeNode(3);
@@ -79,7 +79,7 @@ public:
 	}
 	binaryTreeNode* makeBSTTree() {
 		binaryTreeNode* root = new binaryTreeNode();
-		root->data = 50;
+		root->val = 50;
 		root->left = new binaryTreeNode(30);
 		root->right = new binaryTreeNode(60);
 		root->left->left = new binaryTreeNode(25);
@@ -90,7 +90,7 @@ public:
 	}
 	binaryTreeNode* makeSmallTree() {
 		binaryTreeNode* root = new binaryTreeNode();
-		root->data = 10;
+		root->val = 10;
 		root->left = new binaryTreeNode(66);
 		root->right = new binaryTreeNode(140);
 		return root;
@@ -98,7 +98,7 @@ public:
 
 	void showLList(listPtr head) {
 		while (head != NULL) {
-			cout << head->data << endl;
+			cout << head->val << endl;
 			head = head->next;
 		}
 	}
@@ -116,19 +116,19 @@ public:
 		}
 	}
 
-	listNode* arrayToList(int arr[], int n)
+	ListNode* arrayToList(int arr[], int n)
 	{
-		listNode* root = NULL;
+		ListNode* root = NULL;
 		for (int i = 0; i < n; i++)
 			insert(&root, arr[i]);
 		return root;
 	}
 
-	void insert(listNode** root, int item)
+	void insert(ListNode** root, int item)
 	{
-		listNode* temp = new listNode;
-		listNode* ptr;
-		temp->data = item;
+		ListNode* temp = new ListNode;
+		ListNode* ptr;
+		temp->val = item;
 		temp->next = NULL;
 
 		if (*root == NULL)

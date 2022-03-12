@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrays.h" />
+    <ClInclude Include="dp.h" />
     <ClInclude Include="ds.h" />
     <ClInclude Include="helper.h" />
     <ClInclude Include="linkedlist.h" />

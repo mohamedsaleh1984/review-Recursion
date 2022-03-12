@@ -5,7 +5,7 @@
 using namespace std;
 
 struct binaryTreeNode {
-	int data= 0;
+	int val= 0;
 	binaryTreeNode* left = NULL;
 	binaryTreeNode* right = NULL;
 	binaryTreeNode() {
@@ -13,38 +13,38 @@ struct binaryTreeNode {
 		right = NULL;
 	}
 	binaryTreeNode(int item) {
-		data = item;
+		val = item;
 		left = NULL;
 		right = NULL;
 	}
 };
 
-struct hexEntry {
+struct HexEntry {
 	std::string binRep;
 	char decRep = '\0';
-	hexEntry() {
+	HexEntry() {
 
 	}
-	hexEntry(string binRep, char decRep)
+	HexEntry(string binRep, char decRep)
 	{
 		this->binRep = binRep;
 		this->decRep = decRep;
 	}
 };
 
-struct listNode {
-	int data = 0 ;
-	listNode* next = NULL;
-	listNode() {}
-	listNode(int d) {
-		data = d;
+struct ListNode {
+	int val = 0 ;
+	ListNode* next = NULL;
+	ListNode() {}
+	ListNode(int d) {
+		val = d;
 		next = NULL;
 	}
 };
-typedef listNode* listPtr;
+typedef ListNode* listPtr;
 
 struct HexTable {
-	hexEntry Table[16];
+	HexEntry Table[16];
 	HexTable() {
 		Table[0] = { "0000",'0' };
 		Table[1] = { "0001",'1' };
@@ -63,7 +63,7 @@ struct HexTable {
 		Table[14] = { "1110",'E' };
 		Table[15] = { "1111",'F' };
 	}
-	hexEntry* getTable() {
+	HexEntry* getTable() {
 		return Table;
 	}
 };

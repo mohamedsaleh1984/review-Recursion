@@ -8,11 +8,11 @@ char getHex(string desBinary) {
 		return '\0';
 
 	HexTable tbl;
-	hexEntry* entries = tbl.getTable();
+	HexEntry* entries = tbl.getTable();
 
 	for (int i = 0; i < 16; i++)
 	{
-		hexEntry entry = *(entries + i);
+		HexEntry entry = *(entries + i);
 		if (desBinary.compare(entry.binRep) == 0) {
 			return tbl.Table[i].decRep;
 		}

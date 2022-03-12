@@ -104,4 +104,30 @@ public:
 		int v = JumbIt(array, size, InitStep);
 		return array[InitStep] + v;
 	}
+
+	int BinarySearch(vector<int> vec, int target) {
+		if (vec.size() == 0 || vec.size() == 1 && vec[0] != target)
+			return -1;
+		if (vec.size() == 1 && vec[0] == target)
+			return 0;
+		
+		return BinarySearchHelper(vec, target, 0, vec.size() - 1);
+	}
+	
+	int BinarySearchHelper(vector<int> vec, int target, int l, int r)
+	{
+		if (r < l)
+			return -1;
+		int mid = (l + r) / 2;
+
+		if (vec[mid] == target)
+			return mid;
+		
+		if (target > vec[mid])
+			return BinarySearchHelper(vec, target, mid + 1, r);
+		return BinarySearchHelper(vec, target, 0, mid - 1);
+
+
+		return 0;
+	}
 };

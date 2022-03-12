@@ -25,6 +25,9 @@
     <ClInclude Include="helper.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="dp.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="headers">

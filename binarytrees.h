@@ -17,14 +17,14 @@ public:
 		if (root == NULL)
 			return;
 		InOrder(root->left);
-		cout << root->data << " ";
+		cout << root->val << " ";
 		InOrder(root->right);
 	}
 
 	void PreOrder(binaryTreeNode* root) {
 		if (root == NULL)
 			return;
-		cout << root->data << " ";
+		cout << root->val << " ";
 		InOrder(root->left);
 		InOrder(root->right);
 	}
@@ -34,7 +34,7 @@ public:
 			return;
 		InOrder(root->left);
 		InOrder(root->right);
-		cout << root->data << " ";
+		cout << root->val << " ";
 	}
 
 	bool IsSymmetric(binaryTreeNode* root) {
@@ -59,11 +59,11 @@ public:
 		if (root == NULL)
 			return 0;
 		if (root->left == NULL && root->right == NULL)
-			return root->data;
+			return root->val;
 
 		int leftVal = MaxValue(root->left);
 		int rightVal = MaxValue(root->right);
-		int currValue = root->data;
+		int currValue = root->val;
 
 		if (leftVal > currValue)
 			currValue = leftVal;
@@ -76,11 +76,11 @@ public:
 		if (root == NULL)
 			return 0;
 		if (root->left == NULL && root->right == NULL)
-			return root->data;
+			return root->val;
 
 		int leftVal = MinValue(root->left);
 		int rightVal = MinValue(root->right);
-		int currValue = root->data;
+		int currValue = root->val;
 
 		if (leftVal < currValue)
 			currValue = leftVal;
@@ -107,11 +107,11 @@ public:
 			return true;
 
 		if (root->right != NULL && root->left == NULL) {
-			return root->data > root->right->data;
+			return root->val > root->right->val;
 		}
 
 		if (root->left != NULL && root->right != NULL) {
-			if (root->data > root->left->data && root->data > root->right->data)
+			if (root->val > root->left->val && root->val > root->right->val)
 			{
 				return IsHeap(root->left) && IsHeap(root->right);
 			}
@@ -123,30 +123,30 @@ public:
 		if (root == NULL)
 			return false;
 
-		if (target == root->data) {
+		if (target == root->val) {
 			return true;
 		}
 
-		if (target > root->data)
+		if (target > root->val)
 			return BinarySearch(root->right, target);
 		return BinarySearch(root->left, target);
 	}
 
-	binaryTreeNode* BSTInsertion(binaryTreeNode* root, int data)
+	binaryTreeNode* BSTInsertion(binaryTreeNode* root, int val)
 	{
-		BSTInsertion2(root, root, data);
+		BSTInsertion2(root, root, val);
 		return root;
 	}
 
-	void BSTInsertion2(binaryTreeNode* root, binaryTreeNode* parent, int data) {
+	void BSTInsertion2(binaryTreeNode* root, binaryTreeNode* parent, int val) {
 		if (root == NULL) {
-			binaryTreeNode* newNode = new binaryTreeNode(data);
+			binaryTreeNode* newNode = new binaryTreeNode(val);
 			return;
 		}
 
-		if (data > root->data)
-			return BSTInsertion2(root->right, root, data);
-		return BSTInsertion2(root->left, root, data);
+		if (val > root->val)
+			return BSTInsertion2(root->right, root, val);
+		return BSTInsertion2(root->left, root, val);
 	}
 
 	bool IsBST(binaryTreeNode* root) {
@@ -160,18 +160,18 @@ public:
 		{
 			if (root->left != NULL && root->right != NULL)
 			{
-				if (root->left->data < root->data && root->right->data > root->data)
+				if (root->left->val < root->val && root->right->val > root->val)
 					return true;
 				return false;
 			}
 
 			if (root->left != NULL && root->right == NULL) {
-				if (root->left->data < root->data)
+				if (root->left->val < root->val)
 					return true;
 			}
 
 			if (root->right != NULL && root->left == NULL) {
-				if (root->right->data > root->data)
+				if (root->right->val > root->val)
 					return true;
 			}
 		}
@@ -184,7 +184,7 @@ public:
 		Q.push(root);
 		while (!Q.empty()) {
 			struct binaryTreeNode* curr = Q.front();
-			cout << curr->data << " ";
+			cout << curr->val << " ";
 			if (curr->left != NULL) Q.push(curr->left);
 			if (curr->right != NULL) Q.push(curr->right);
 			Q.pop();
@@ -197,7 +197,7 @@ public:
 		if (root2 == NULL) return root1;
 
 		struct binaryTreeNode* newNode = (struct binaryTreeNode*)malloc(sizeof(struct binaryTreeNode));
-		newNode->data = root1->data + root2->data;
+		newNode->val = root1->val + root2->val;
 
 		newNode->left = SumofTwoTrees(root1->left, root2->left);
 		newNode->right = SumofTwoTrees(root1->right, root2->right);
@@ -208,7 +208,7 @@ public:
 	int SumOfRootToLeaf(binaryTreeNode* root) {
 		if (root == NULL)
 			return 0;
-		return root->data + SumOfRootToLeaf(root->left) + SumOfRootToLeaf(root->right);
+		return root->val + SumOfRootToLeaf(root->left) + SumOfRootToLeaf(root->right);
 	}
 
 	/*Given a binary tree, print out all of its root-to-leaf paths, one per line. Uses a recursive helper to do the work.*/
@@ -224,7 +224,7 @@ public:
 		if (r1 == NULL && r2 == NULL) {
 			return true;
 		}
-		if (r1->data == r2->data) {
+		if (r1->val == r2->val) {
 			return true;
 		}
 
@@ -239,7 +239,7 @@ public:
 		}
 
 		if (r1->left == NULL && r2->left == NULL && r1->right == NULL && r2->right) {
-			if (r1->data == r2->data)
+			if (r1->val == r2->val)
 				return true;
 			else
 				return false;
@@ -301,21 +301,21 @@ public:
 
 		while (!S.empty()) {
 			pair<binaryTreeNode*, int> node = S.front();
-			if (node.first->data == TargetNode)
+			if (node.first->val == TargetNode)
 			{
-				targetNode = make_pair(node.first, node.first->data);
-				kk.insert(std::make_pair(node.first->data, node.first));
+				targetNode = make_pair(node.first, node.first->val);
+				kk.insert(std::make_pair(node.first->val, node.first));
 				break;
 			}
 			else {
 				if (node.first->left) {
-					S.push(std::make_pair(node.first->left, node.first->data));
-					kk.insert(std::make_pair(node.first->data, node.first->left));
+					S.push(std::make_pair(node.first->left, node.first->val));
+					kk.insert(std::make_pair(node.first->val, node.first->left));
 				}
 
 				if (node.first->right) {
-					S.push(std::make_pair(node.first->right, node.first->data));
-					kk.insert(std::make_pair(node.first->data, node.first->right));
+					S.push(std::make_pair(node.first->right, node.first->val));
+					kk.insert(std::make_pair(node.first->val, node.first->right));
 				}
 
 				S.pop();
@@ -344,7 +344,7 @@ public:
 	//		//Check if it's Target
 	//		pair<binaryTreeNode*, int> node = S.top();
 
-	//		 if (node.first->data == TargetNode) {
+	//		 if (node.first->val == TargetNode) {
 	//			break;
 	//		}
 	//		else {
@@ -355,7 +355,7 @@ public:
 	//			if (node.first->right) {
 	//				S.push(std::make_pair(node.first->right, node.second));
 	//			}
-	//			visited.insert(node.first->data);
+	//			visited.insert(node.first->val);
 	//			S.pop();
 	//		} 
 	//	}
@@ -391,7 +391,7 @@ public:
 	{
 		if (!root1 && !root2) return true;
 		if (!root1 || !root1) return false;
-		if (root1->data != root2->data) return false;
+		if (root1->val != root2->val) return false;
 
 		bool a = IsIsomorphic(root1->left, root2->left) && IsIsomorphic(root1->right, root2->right);
 		bool b = IsIsomorphic(root1->left, root2->right) && IsIsomorphic(root1->right, root2->left);
@@ -403,7 +403,7 @@ public:
 		if (root == NULL)
 			return NULL;
 
-		if (root->data == v1 || root->data == v2)
+		if (root->val == v1 || root->val == v2)
 			return root;
 
 		binaryTreeNode* llca = LowestCommonAncestor(root->left, v1, v2);
@@ -443,7 +443,7 @@ private:
 			return;
 
 		if (root->left == NULL and root->right == NULL)
-			v.push_back(root->data);
+			v.push_back(root->val);
 
 		leaves(root->left, v);
 		leaves(root->right, v);
@@ -456,7 +456,7 @@ private:
 			return;
 
 		/* append this node to the path array */
-		path[pathLen] = node->data;
+		path[pathLen] = node->val;
 		pathLen++;
 
 		/* it's a leaf, so print the path that lead to here */
@@ -480,13 +480,13 @@ private:
 		//We've reached to a leave
 		if (root->left == NULL && root->right == NULL) {
 			//Append the current Node to the Path
-			currPath += to_string(root->data);
+			currPath += to_string(root->val);
 			//Push the Path to the vector
 			res.push_back(currPath);
 			return;
 		}
 
-		currPath += to_string(root->data) + "->";
+		currPath += to_string(root->val) + "->";
 		if (root->left)
 			PathFinder(root->left, res, currPath);
 
@@ -499,8 +499,8 @@ private:
 			return 0;
 
 		if (isLeft) {
-			cout << root->data << " ";
-			sum += root->data;
+			cout << root->val << " ";
+			sum += root->val;
 		}
 
 		int leftNode = SumOfLeftNodesHelper(root->left, true, sum);
@@ -512,8 +512,8 @@ private:
 			return 0;
 
 		if (isLeft && root->left == NULL && root->right == NULL) {
-			cout << root->data << " ";
-			sum += root->data;
+			cout << root->val << " ";
+			sum += root->val;
 		}
 
 		int leftNode = SumOfLeftLeavesHelper(root->left, true, sum);
@@ -525,9 +525,9 @@ private:
 			return false;
 
 		if (root->left == NULL && root->right == NULL)
-			return (currentSum + root->data) == TargetSum;
+			return (currentSum + root->val) == TargetSum;
 
-		int sumUntil = currentSum + root->data;
+		int sumUntil = currentSum + root->val;
 		bool leftVal = IsPathSum(root->left, TargetSum, sumUntil);
 		bool rightVal = IsPathSum(root->right, TargetSum, sumUntil);
 

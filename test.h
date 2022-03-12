@@ -7,9 +7,42 @@
 #include <stack>
 #include "binarytrees.h"
 #include "ds.h"
+#include "arrays.h"
+#include "dp.h"
+#include "linkedlist.h"
+
 using namespace std;
 TreeRecAlgo* ptrTree;
 Helper* ptrAux;
+ArrayRecusiveAlgo* ptrArray;
+DynamicProgramming* ptrDp;
+LinkedListRecAlgo* ptrllAlgo;
+
+void test_LinkedList_RotateRight() {
+    ListNode* head = new ListNode(10);
+    head->next = new ListNode(20);
+    head->next->next = new ListNode(30);
+    head->next->next->next = new ListNode(40);
+
+    ListNode* temp = ptrllAlgo->rotateRight(head, 2);
+    while (temp) {
+        cout << temp->val << endl;
+        temp = temp->next;
+    }
+}
+
+void test_DP_Memo_Fac() {
+    int fac = 100;
+    cout << "factorial(" << fac << ") is " << ptrDp->fac_Memo(100);
+}
+
+void test_Array_BinarySearch() {
+    vector<int> nums = { 10,20,30,40,50,60,70,80 };
+    int target = 70;
+    int i  = ptrArray->BinarySearch(nums,target);
+    cout << "looking for " << target << ", result " << i << endl;
+}
+
 
 void test_PathSum2() {
     vector<int> treeNodesValues = { 5,4,8,11,NULL,13,4,7,2,NULL,NULL,5,1 };
@@ -25,7 +58,7 @@ void test_PathSum2() {
 void test_LowestCommonAncestor() {
     binaryTreeNode* root = ptrAux->makeTree();
     binaryTreeNode* node = ptrTree->LowestCommonAncestor(root, 5, 27);
-    cout << "Lowest Common Ancestor :: " << node->data << endl;
+    cout << "Lowest Common Ancestor :: " << node->val << endl;
 }
 
 void test_FindPathToNode() {
