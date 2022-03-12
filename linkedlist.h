@@ -24,7 +24,7 @@ public:
 		}
 		return occur;
 	}
-
+    //https://leetcode.com/problems/rotate-list/
 	ListNode* rotateRight(ListNode* head, int k) {
         ListNode* tmpHead = head;
         ListNode* headToReturn = head;
@@ -60,6 +60,12 @@ public:
         return headToReturn;
 		
 	}
+
+    //https://leetcode.com/problems/split-linked-list-in-parts/
+    vector<ListNode*> splitListToParts(ListNode* head, int k) {
+        vector<ListNode*> list;
+        return list;
+    }
 private:
 	void rotateRightHelper(ListNode* head, vector<int>, int k) {
 
