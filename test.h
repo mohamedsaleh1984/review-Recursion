@@ -10,6 +10,7 @@
 #include "arrays.h"
 #include "dp.h"
 #include "linkedlist.h"
+#include "strings.h"
 
 using namespace std;
 TreeRecAlgo* ptrTree;
@@ -17,6 +18,13 @@ Helper* ptrAux;
 ArrayRecusiveAlgo* ptrArray;
 DynamicProgramming* ptrDp;
 LinkedListRecAlgo* ptrllAlgo;
+StringsAlgo* ptrStrings;
+
+void test_IsPal() {
+	string strInput = "MaaM";
+	cout << strInput << " " << ptrStrings->IsPalendromic(strInput) << endl;
+}
+
 
 void test_LinkedList_Split() {
 	ListNode* head = new ListNode(10);
