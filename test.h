@@ -20,11 +20,19 @@ DynamicProgramming* ptrDp;
 LinkedListRecAlgo* ptrllAlgo;
 StringsAlgo* ptrStrings;
 
-void test_IsPal() {
+void test_Strings_IsPalendromic() {
 	string strInput = "MaaM";
 	cout << strInput << " " << ptrStrings->IsPalendromic(strInput) << endl;
 }
 
+void test_Strings_GenerateParenthese() {
+	int n = 3;
+	vector<string> result;
+	result = ptrStrings->generateParenthesis(n);
+	for (auto item : result) {
+		cout << item << " ";
+	}
+}
 
 void test_LinkedList_Split() {
 	ListNode* head = new ListNode(10);

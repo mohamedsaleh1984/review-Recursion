@@ -17,7 +17,8 @@ public:
         }
         return false;
     }
-
+    //Solution Ref : https://leetcode.com/problems/generate-parentheses/discuss/1847972/C%2B%2B-simple-approach-of-Recursion-and-backtracking.
+    //Problem : https://leetcode.com/problems/generate-parentheses
     vector<string> generateParenthesis(int n) {
         string output;
         vector<string> out;

@@ -20,7 +20,8 @@ using namespace std;
 
 int main()
 {
-	test_IsPal();
+	test_Strings_GenerateParenthese();
+	//test_Strings_IsPalendromic();
 	//test_LinkedList_Split();
 	//test_LinkedList_RotateRight();
 	//test_DP_Memo_Fac();
