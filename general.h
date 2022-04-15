@@ -235,6 +235,24 @@ public:
 		}
 		return sum;
 	}
+
+	//Power Function
+	int power(int a, int n) {
+		if (n == 0)
+			return 1;
+		return a * power(a, n - 1);
+	}
+
+	int power_fast(int a, int n) {
+		if (n == 0)
+			return 1;
+		int subProb = power_fast(a, n / 2);
+		int subProbSq = subProb * subProb;
+		if (n % 2 == 1)//Odd number n&1
+			return a * subProbSq;
+		return subProbSq;
+	}
+
 };
 
 #endif // !GENERAL_H
